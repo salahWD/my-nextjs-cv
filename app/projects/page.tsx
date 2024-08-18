@@ -2,26 +2,25 @@ import Link from "next/link";
 import React from "react";
 import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import Card from "../components/card";
 import { Article } from "./article";
-import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
-const redis = Redis.fromEnv();
-
-export const revalidate = 60;
 export default async function ProjectsPage() {
-  const views = (
-    await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+
+  allProjects.map(item => {
+    console.log("===============")
+    console.log(item.title)
+    console.log(item.description)
+    console.log(item.url)
+    console.log(item.type)
+    console.log(item.path)
+    console.log(item.slug)
+    console.log("===============")
+  })
 
   const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
+  const top2 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
     .filter((p) => p.published)
@@ -70,7 +69,7 @@ export default async function ProjectsPage() {
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
                     <Eye className="w-4 h-4" />{" "}
                     {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
+                      /* views[featured.slug] ?? */ 0,
                     )}
                   </span>
                 </div>
@@ -94,9 +93,10 @@ export default async function ProjectsPage() {
           </Card>
 
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
-              <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
+            {[top2, top3].map((project, index) => (
+              // <Card key={project?.slug && project.url}>
+              <Card key={index}>
+                <Article project={project} views={/* views[project.slug] ?? */ 0} />
               </Card>
             ))}
           </div>
@@ -107,27 +107,30 @@ export default async function ProjectsPage() {
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 0)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+              .map((project, index) => (
+                // <Card key={project?.slug && project.url}>
+                <Card key={index}>
+                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 1)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+              .map((project, index) => (
+                // <Card key={project?.slug && project.url}>
+                <Card key={index}>
+                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>
           <div className="grid grid-cols-1 gap-4">
             {sorted
               .filter((_, i) => i % 3 === 2)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} />
+              .map((project, index) => (
+                // <Card key={project?.slug && project.url}>
+                <Card key={index}>
+                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>

@@ -2,23 +2,24 @@ import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
+  // metadataBase: new URL('https://salahbakhash.com'),
+  metadataBase: new URL('http://localhost:3000'),
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "salahbakhsh.com",
+    template: "%s | salahbakhsh.com",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Full-Stack Web Developer & Freelancer",
   openGraph: {
-    title: "chronark.com",
+    title: "salahbakhsh.com",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Full-Stack Web Developer & Freelancer",
+    url: "https://salahbakhsh.com",
+    siteName: "salahbakhsh.com",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://salahbakhsh.com/og.png",
         width: 1920,
         height: 1080,
       },
@@ -63,7 +64,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
-        <Analytics />
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
