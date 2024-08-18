@@ -6,20 +6,9 @@ import Card from "../components/card";
 import { Article } from "./article";
 import { Eye } from "lucide-react";
 
-export default async function ProjectsPage() {
+export default async function ProjectsSection() {
 
-  allProjects.map(item => {
-    console.log("===============")
-    console.log(item.title)
-    console.log(item.description)
-    console.log(item.url)
-    console.log(item.type)
-    console.log(item.path)
-    console.log(item.slug)
-    console.log("===============")
-  })
-
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
+  const featured = allProjects.find((project) => project.slug === "musaidai")!;
   const top2 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
@@ -38,14 +27,15 @@ export default async function ProjectsPage() {
 
   return (
     <div className="relative pb-16">
-      <Navigation />
+      <Navigation customClass="animate-fade-in" />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects
+            My Projects
           </h2>
           <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
+            {/* Some of the projects are from work and some are on my own time. */}
+            These projects are from my freelance work and not my job.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />

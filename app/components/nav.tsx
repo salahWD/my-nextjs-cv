@@ -3,7 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Navigation: React.FC = () => {
+type NavigationProps = {
+	customClass?: string,
+};
+
+export const Navigation = ({ customClass="" }: NavigationProps) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
@@ -18,7 +22,7 @@ export const Navigation: React.FC = () => {
 	}, []);
 
 	return (
-		<header ref={ref}>
+		<header ref={ref} className={customClass}>
 			<div
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur duration-200 border-b  ${
 					isIntersecting
