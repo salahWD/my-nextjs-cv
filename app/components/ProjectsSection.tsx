@@ -1,15 +1,14 @@
 import Link from "next/link";
 import React from "react";
 import { allProjects } from "contentlayer/generated";
-import { Navigation } from "../components/nav";
-import Card from "../components/card";
-import { Article } from "./article";
+import Card from "@/app/components/card";
+import { Article } from "@/app/components/Article";
 import { Eye } from "lucide-react";
 
-export default async function ProjectsSection() {
+export default async function ProjectsSection({id}: {id: string}) {
 
-  const featured = allProjects.find((project) => project.slug === "musaidai")!;
-  const top2 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
+  const featured = allProjects.find((project) => project.slug === "musaadai")!;
+  const top2 = allProjects.find((project) => project.slug === "eletorial")!;
   const top3 = allProjects.find((project) => project.slug === "highstorm")!;
   const sorted = allProjects
     .filter((p) => p.published)
@@ -26,8 +25,7 @@ export default async function ProjectsSection() {
     );
 
   return (
-    <div className="relative pb-16">
-      <Navigation customClass="animate-fade-in" />
+    <div className="relative min-h-screen pb-16 bg-gradient-to-tr from-black via-zinc-600/20 to-black" id={id}>
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">

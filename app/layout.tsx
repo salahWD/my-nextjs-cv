@@ -3,6 +3,8 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 
+import { Navigation } from "@/app/components/nav";
+
 export const metadata: Metadata = {
   // metadataBase: new URL('https://salahbakhash.com'),
   metadataBase: new URL('http://localhost:3000'),
@@ -62,13 +64,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ") + " scroll-smooth"}>
       <head>
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
           }`}
       >
+        <Navigation customClass="animate-fade-in" />
         {children}
       </body>
     </html>
