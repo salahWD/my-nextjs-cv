@@ -5,7 +5,7 @@ import Card from "@/app/components/card";
 import { Article } from "@/app/components/Article";
 import { Eye } from "lucide-react";
 
-export default async function ProjectsSection({id}: {id: string}) {
+export default async function ProjectsPage({id}: {id: string}) {
 
   const featured = allProjects.find((project) => project.slug === "musaadai")!;
   const top2 = allProjects.find((project) => project.slug === "eletorial")!;
@@ -13,11 +13,10 @@ export default async function ProjectsSection({id}: {id: string}) {
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
-      (project) => ![featured.slug, top2.slug, top3.slug].includes(project.slug)
-    )
-    .filter(
-      // to have only one row of project (other then the featured projects)
-      (project, index) => index <= 2
+      (project) =>
+        project.slug !== featured.slug &&
+        project.slug !== top2.slug &&
+        project.slug !== top3.slug,
     )
     .sort(
       (a, b) =>
@@ -34,7 +33,7 @@ export default async function ProjectsSection({id}: {id: string}) {
           </h2>
           <p className="mt-4 text-zinc-400">
             {/* Some of the projects are from work and some are on my own time. */}
-            These are some of my featured projects.
+            These projects are from my freelance work and not my job.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
