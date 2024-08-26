@@ -1,77 +1,72 @@
 ---
 title: "Eletorial Platform"
-description: custom LMS for Electronical Enginearing, with a variety of different sections like (courses, blog, electronics store, appointments & consultations booking ).
+description: A custom Learning Management System (LMS) designed for Electrical Engineering, featuring a blend of educational resources, e-commerce, and consultation services.
 date: "2024-05-22"
 url: http://eletorial.com
 published: true
 repository: salahWD/Laravel-LMS-Systeam
 ---
 
-A minimal library for access control. It is designed to be used together with opaque access tokens by providing a simple interface to define roles with different access permissions and verifying requests to resources.
+## Overview
 
-- Fully typed
-- Zero dependencies
-- Serializable to store in a database
+[![eletorial homepage](eletorial.png)](https://eletorial.com)
 
-## Install
+**Eletorial Platform** is a robust Learning Management System (LMS) tailored specifically for Electrical Engineering enthusiasts and professionals. Developed with Laravel, Bootstrap, jQuery, and the "Volt" dashboard kit, this platform offers a comprehensive suite of tools for learning, shopping for electronic kits, and booking expert consultations.
 
-```sh-session
-npm i @chronark/access
-```
+## Technologies Used
 
-## Usage
+- **Backend**: Laravel
+- **Frontend**: Bootstrap, jQuery
+- **Dashboard**: Volt (open-source dashboard kit)
+- **Payment Integration**: Stripe (done), Paypal (soon)
+- **Security**: Google reCAPTCHA
 
-```ts
-import { AccessControl, Role } from "@chronark/access";
+## Core Features
 
-/**
- * Define all your resources and their access patterns
- *
- * key => resource
- * value => array of access types
- */
-type Statements = {
-  user: ["read", "write", "dance"];
-  team: ["read", "write"];
-};
+### **Courses System**
 
-/**
- * Create an access control instance and pass the Statements type to enjoy full
- * type safety
- */
-const ac = new AccessControl<Statements>();
+- **Custom Course Creation**: Admins can create courses manually or import a YouTube playlist, automatically organizing videos into ordered lectures.
+- **Sequential Learning**: Lectures must be watched in sequence; the next lecture only unlocks once the previous one is completed.
+- **Exam Builder**: Enhanced from the **musaad.ai** project, with new question types like equations with random variables.
+- **Certification**: Admins can assign certificates to exams, awarded upon passing.
 
-/**
- * Now you can define one or more roles by specifying the access permissions
- *
- * This is already fully typed and typescript will let you know if you try to
- * use anything, that is not defined in the Statements type.
- */
-const role = ac.newRole({
-  user: ["read", "write"],
-  team: ["read"],
-});
+### **Blog and Article Management**
 
-/**
- * Simulate storing and retrieving the role in a database
- *
- * The idea here is, that you can store permissions alongside an API token.
- * Now, when you verify the token, you can also verify the access permissions.
- */
-const serialized = role.toString();
+- **Content Library**: Over 350 articles on Electrical Engineering topics.
+- **Blog Integration**: A fully integrated blogging system to keep the community engaged with fresh content.
 
-/**
- * Note how you can pass in the Statements type again, to get full type safety
- */
-const recovered = Role.fromString<Statements>(serialized);
+### **Appointment and Consultation Booking**
 
-/**
- * Validate the role by specifying the resource and the required access
- *
- * everything is fully typed
- */
-const res = recovered.authorize({"team", ["read"]});
+- **Expert Consultations**: Users can book sessions with Dr. Walid Isaa, the platform’s owner.
+- **Admin Control**: Admins can manage availability and share booking links.
+- **Payment Integration**: Supports both free and paid sessions, with Stripe integration for easy payments.
 
-// res.success => boolean
-// res.error => string | undefined provides a reason for failure
-```
+### **E-Commerce Integration**
+
+- **Electronics Store**: Sells electronic kits and components.
+- **Product Import**: Products from AliExpress can be automatically scraped, including images and details.
+- **Order Tracking**: Each order is assigned a QR code for tracking.
+
+### **Enhanced Security**
+
+- **Google reCAPTCHA**: Implemented on all contact forms to prevent spam and ensure security.
+
+## Content and Resources
+
+- **Courses**: **6 courses** with approximately **1000 hours** of content.
+- **Lecture Types**: Includes both uploaded videos and embedded YouTube videos.
+- **Articles**: A library of **over 350 articles** written by industry experts.
+
+## Client Collaboration
+
+**Dr. Walid Isaa**, a respected expert in Electrical Engineering, envisioned a platform that would not only educate but also provide practical tools and consultations to help learners apply their knowledge. The Eletorial Platform fulfills this vision by blending education, e-commerce, and professional services into one cohesive system.
+
+## Impact and Highlights
+
+- **Integrated Systems**: Combines LMS, e-commerce, and appointment booking into a single platform.
+- **User-Centric Design**: Focuses on ease of use, sequential learning, and comprehensive resource management.
+- **Real-World Application**: Allows learners to purchase necessary tools and book consultations, enhancing their practical learning experience.
+
+---
+
+**Eletorial Platform** exemplifies my ability to develop complex, multi-faceted web applications that cater to both educational and commercial needs, providing users with a holistic learning experience.

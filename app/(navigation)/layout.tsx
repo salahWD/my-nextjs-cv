@@ -1,4 +1,4 @@
-import "../global.css";
+import "../../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "salahbakhash",
+    title: "salahbakhash cv",
     card: "summary_large_image",
   },
   icons: {
@@ -54,7 +54,7 @@ const inter = Inter({
 });
 
 const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
+  src: "../../public/fonts/CalSans-SemiBold.ttf",
   variable: "--font-calsans",
 });
 
