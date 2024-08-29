@@ -12,6 +12,22 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 
 <br/>
 
+
+## Features
+
+- **Project Showcase**: A dedicated section for each project, including descriptions, technologies used, and links to live demos and source code.
+- **Responsive Design**: Fully responsive across all devices, providing an optimal viewing experience whether on desktop, tablet, or mobile.
+- **Blog Integration**: A blog section where I share insights, tutorials, and updates about my work.
+- **Smooth Animations**: Subtle animations enhance the user experience without compromising performance.
+- **Contact Form**: A functional contact form for potential clients or collaborators to reach out directly.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Content Management**: [Contentlayer](https://www.contentlayer.dev/)
+
+
 ## Running Locally
 
 ```sh-session
