@@ -84,7 +84,7 @@ export default function ProjectsSection() {
             {[top2, top3].map((project, index) => (
               // <Card key={project?.slug && project.url}>
               <Card key={index}>
-                <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                <Project project={project} />
               </Card>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>
@@ -108,7 +108,7 @@ export default function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>
@@ -118,7 +118,7 @@ export default function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>

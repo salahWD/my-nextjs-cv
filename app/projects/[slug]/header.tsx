@@ -11,9 +11,9 @@ type Props = {
 		repository?: string;
 	};
 
-	views: number;
 };
-export const Header: React.FC<Props> = ({ project, views }) => {
+export const Header: React.FC<Props> = ({ project }) => {
+	
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
@@ -56,16 +56,8 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 					<div className="flex justify-between gap-8">
 						<span
 							title="View counter for this page"
-							className={`duration-200 hover:font-medium flex items-center gap-1 ${
-								isIntersecting
-									? " text-zinc-400 hover:text-zinc-100"
-									: "text-zinc-600 hover:text-zinc-900"
-							} `}
+							className="duration-200 hover:font-medium flex items-center gap-1"
 						>
-							<Eye className="w-5 h-5" />{" "}
-							{Intl.NumberFormat("en-US", { notation: "compact" }).format(
-								views,
-							)}
 						</span>
 						<Link target="_blank" href="https://github.com/salahWD">
 							<Github
@@ -79,7 +71,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 					</div>
 
 					<Link
-						href="/projects"
+						href="/"
 						className={`duration-200 hover:font-medium ${
 							isIntersecting
 								? " text-zinc-400 hover:text-zinc-100"
