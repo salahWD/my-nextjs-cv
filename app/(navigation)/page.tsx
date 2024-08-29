@@ -34,7 +34,7 @@ export default function Home() {
             <GoToBtn target="projects" />
         </div>
       </div>
-      <ProjectsSection id="projects" />
+      <ProjectsSection />
       <ContactMeSection />
     </>
   );
