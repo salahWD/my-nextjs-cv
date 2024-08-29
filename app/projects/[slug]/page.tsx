@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { allProjects } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
-import Layout from "./Layout";
 import "./mdx.css";
 import { ReportView } from "./view";
 
@@ -41,9 +40,3 @@ export default async function PostPage({ params }: Props) {
     </div>
   );
 }
-
-PostPage.getLayout = (page: React.ReactNode) => {
-  return <Layout>
-    {page}
-  </Layout>;
-};
