@@ -1,23 +1,25 @@
 import Link from "next/link";
 import React from "react";
+
 import { allProjects } from "contentlayer/generated";
-import { Navigation } from "../components/nav";
-import Card from "../components/card";
-import { Article } from "./article";
-import { Eye } from "lucide-react";
 
-export default async function ProjectsSection() {
+import Card from "@/app/components/card";
+import Project from "@/app/components/Project";
+import TechStack from "@/app/components/TechStack";
 
-  const featured = allProjects.find((project) => project.slug === "musaidai")!;
-  const top2 = allProjects.find((project) => project.slug === "upstash-auth-analytics")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+export default async function ProjectsSection({id}: {id: string}) {
+
+  const featured = allProjects.find((project) => project.slug === "musaadai")!;
+  const top2 = allProjects.find((project) => project.slug === "eletorial")!;
+  const top3 = allProjects.find((project) => project.slug === "chess-corner")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug,
+      (project) => ![featured.slug, top2.slug, top3.slug].includes(project.slug)
+    )
+    .filter(
+      // to have only one row of project (other then the featured projects)
+      (project, index) => index <= 2
     )
     .sort(
       (a, b) =>
@@ -26,8 +28,7 @@ export default async function ProjectsSection() {
     );
 
   return (
-    <div className="relative pb-16">
-      <Navigation customClass="animate-fade-in" />
+    <div className="relative min-h-screen pb-16 bg-gradient-to-tr from-black via-zinc-600/20 to-black" id={id}>
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
@@ -35,7 +36,7 @@ export default async function ProjectsSection() {
           </h2>
           <p className="mt-4 text-zinc-400">
             {/* Some of the projects are from work and some are on my own time. */}
-            These projects are from my freelance work and not my job.
+            These are some of my featured projects.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
@@ -57,10 +58,7 @@ export default async function ProjectsSection() {
                     )}
                   </div>
                   <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      /* views[featured.slug] ?? */ 0,
-                    )}
+                    {featured?.techs && <TechStack techs={featured.techs} />}
                   </span>
                 </div>
 
@@ -86,7 +84,7 @@ export default async function ProjectsSection() {
             {[top2, top3].map((project, index) => (
               // <Card key={project?.slug && project.url}>
               <Card key={index}>
-                <Article project={project} views={/* views[project.slug] ?? */ 0} />
+                <Project project={project} views={/* views[project.slug] ?? */ 0} />
               </Card>
             ))}
           </div>
@@ -100,7 +98,7 @@ export default async function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>
@@ -110,7 +108,7 @@ export default async function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>
@@ -120,7 +118,7 @@ export default async function ProjectsSection() {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Article project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
                 </Card>
               ))}
           </div>

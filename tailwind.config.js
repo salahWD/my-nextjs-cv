@@ -38,6 +38,9 @@ module.exports = {
       },
       animation: {
         "fade-in": "fade-in 1.8s ease-in-out forwards",
+        "scale-fade-in":
+          "scale-fade-in 1.8s 0.9s cubic-bezier(0,.49,.5,1) forwards",
+        "scale-up": "scale-up 1s 1.5s cubic-bezier(0,.49,.5,1) forwards",
         title: "title 1.8s ease-out forwards",
         "fade-left": "fade-left 1.8s ease-in-out forwards",
         "fade-right": "fade-right 1.8s ease-in-out forwards",
@@ -52,6 +55,16 @@ module.exports = {
           },
           "100%": {
             opacity: "100%",
+          },
+        },
+        "scale-fade-in": {
+          "0%": {
+            opacity: "0%",
+            transform: "scale(0)",
+          },
+          "100%": {
+            opacity: "100%",
+            transform: "scale(1)",
           },
         },
         "fade-left": {

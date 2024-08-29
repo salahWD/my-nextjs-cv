@@ -1,0 +1,42 @@
+import Link from "next/link";
+
+import type { Project } from "@/.contentlayer/generated";
+import TechStack from "@/app/components/TechStack"
+
+type ProjectProps = {
+	project: Project;
+	views: number;
+};
+
+export default function Project({ project, views }: ProjectProps) {
+	return (
+		<Link href={`/projects/${project?.slug}`}>
+			<article className="p-4 md:p-8">
+				<div className="flex justify-between gap-2 items-center mb-3">
+					<span className="text-xs duration-300 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
+						{project?.date ? (
+							<time dateTime={new Date(project.date).toISOString()}>
+								{Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(
+									new Date(project.date),
+								)}
+							</time>
+						) : (
+							<span>SOON</span>
+						)}
+					</span>
+					<span className="text-zinc-500 text-xs  flex items-center gap-1">
+						{project?.techs &&
+							<TechStack techs={project.techs} />
+						}
+					</span>
+				</div>
+				<h2 className="z-20 text-xl font-medium duration-300 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+					{project?.title}
+				</h2>
+				<p className="z-20 mt-4 text-sm  duration-300 text-zinc-400 group-hover:text-zinc-200">
+					{project?.description}
+				</p>
+			</article>
+		</Link>
+	);
+};

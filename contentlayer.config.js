@@ -42,6 +42,11 @@ export const Project = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
+    techs: {
+      type: "list", // Change 'array' to 'list'
+      of: { type: "string" }, // Specify the type of elements in the list
+      required: false,
+    },
     repository: {
       type: "string",
       required: false,

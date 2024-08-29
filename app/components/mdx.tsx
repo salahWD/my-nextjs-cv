@@ -73,7 +73,7 @@ const components = {
 	),
 	p: ({ className, ...props }) => (
 		<p
-			className={clsx("leading-7 [&:not(:first-child)]:mt-6", className)}
+			className={clsx("text-lg leading-7 [&:not(:first-child)]:mt-6", className)}
 			{...props}
 		/>
 	),
@@ -84,7 +84,7 @@ const components = {
 		<ol className={clsx("my-6 ml-6 list-decimal", className)} {...props} />
 	),
 	li: ({ className, ...props }) => (
-		<li className={clsx("mt-2", className)} {...props} />
+		<li className={clsx("text-lg mt-2", className)} {...props} />
 	),
 	blockquote: ({ className, ...props }) => (
 		<blockquote
