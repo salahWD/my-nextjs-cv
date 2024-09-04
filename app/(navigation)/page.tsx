@@ -22,7 +22,7 @@ export default function Home() {
             <h2 className="text-base text-zinc-500">
               I'm showing{" "}
               <Link
-                href="/projects"
+                href="#projects"
                 className="underline duration-700 hover:text-zinc-300"
               >
                 these porjects
@@ -34,7 +34,7 @@ export default function Home() {
             <GoToBtn target="projects" />
         </div>
       </div>
-      <ProjectsSection id="projects" />
+      <ProjectsSection />
       <ContactMeSection />
     </>
   );

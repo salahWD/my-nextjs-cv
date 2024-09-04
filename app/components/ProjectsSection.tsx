@@ -7,7 +7,7 @@ import Card from "@/app/components/card";
 import Project from "@/app/components/Project";
 import TechStack from "@/app/components/TechStack";
 
-export default async function ProjectsSection({id}: {id: string}) {
+export default function ProjectsSection() {
 
   const featured = allProjects.find((project) => project.slug === "musaadai")!;
   const top2 = allProjects.find((project) => project.slug === "eletorial")!;
@@ -28,7 +28,7 @@ export default async function ProjectsSection({id}: {id: string}) {
     );
 
   return (
-    <div className="relative min-h-screen pb-16 bg-gradient-to-tr from-black via-zinc-600/20 to-black" id={id}>
+    <div className="relative min-h-screen pb-16 bg-gradient-to-tr from-black via-zinc-600/20 to-black" id="projects">
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
@@ -84,7 +84,7 @@ export default async function ProjectsSection({id}: {id: string}) {
             {[top2, top3].map((project, index) => (
               // <Card key={project?.slug && project.url}>
               <Card key={index}>
-                <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                <Project project={project} />
               </Card>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default async function ProjectsSection({id}: {id: string}) {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>
@@ -108,7 +108,7 @@ export default async function ProjectsSection({id}: {id: string}) {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>
@@ -118,7 +118,7 @@ export default async function ProjectsSection({id}: {id: string}) {
               .map((project, index) => (
                 // <Card key={project?.slug && project.url}>
                 <Card key={index}>
-                  <Project project={project} views={/* views[project.slug] ?? */ 0} />
+                  <Project project={project} />
                 </Card>
               ))}
           </div>

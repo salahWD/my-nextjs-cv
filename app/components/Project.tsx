@@ -5,10 +5,9 @@ import TechStack from "@/app/components/TechStack"
 
 type ProjectProps = {
 	project: Project;
-	views: number;
 };
 
-export default function Project({ project, views }: ProjectProps) {
+export default function Project({ project }: ProjectProps) {
 	return (
 		<Link href={`/projects/${project?.slug}`}>
 			<article className="p-4 md:p-8">
