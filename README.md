@@ -3,7 +3,7 @@
 
 My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Contentlayer](https://www.contentlayer.dev/) and deployed to [Vercel](https://vercel.com/).
 
-<a target="_blank" href="https://my-nextjs-om5uf64t0-salah-2d098c8c.vercel.app/">
+<a target="_blank" href="https://my-nextjs-cv-git-dev-salah-vercal.vercel.app?_vercel_share=BMrY1b4Eo7y831zw10jd6eqTS6khaOcV">
     <img src="./public/projects/my-nextjs-cv.png" alt="my NextJs portfolio" width="550" />
 </a>
 
