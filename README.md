@@ -7,10 +7,12 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
     <img src="./public/projects/my-nextjs-cv.png" alt="my NextJs portfolio" width="550" />
 </a>
 
+  
 </div>
 
 <br/>
 
+  
 ## Features
 
 - **Project Showcase**: A dedicated section for each project, including descriptions, technologies used, and links to live demos and source code.
@@ -24,6 +26,7 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Content Management**: [Contentlayer](https://www.contentlayer.dev/)
+
 
 ## Running Locally
 
